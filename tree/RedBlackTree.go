@@ -158,3 +158,17 @@ func (t *RedBlackTree) rotateRight(xnode *TreeNode) {
 		pnode.left = ynode
 	}
 }
+
+func (t *RedBlackTree) Search(value int) *TreeNode {
+	tnode := t.root
+	for {
+		if tnode == t.leaf || tnode.value == value {
+			return tnode
+		}
+		if tnode.value < value {
+			tnode = tnode.right
+		} else {
+			tnode = tnode.left
+		}
+	}
+}
