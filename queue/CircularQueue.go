@@ -2,30 +2,33 @@ package queue
 
 import "fmt"
 
+/**
+  Circular Queue
+*/
 type CircularQueue struct {
-	values []interface{}
+	values   []interface{}
 	capacity int
-	head int
-	tail int
+	head     int
+	tail     int
 }
 
-func NewCircularQueue(n int)  *CircularQueue{
-	return  &CircularQueue{make([] interface{}, n), n, 0, 0}
+func NewCircularQueue(n int) *CircularQueue {
+	return &CircularQueue{make([]interface{}, n), n, 0, 0}
 }
 
 func (q *CircularQueue) IsEmpty() bool {
 	return q.head == q.tail
 }
 
-func (q *CircularQueue) IsFull() bool{
+func (q *CircularQueue) IsFull() bool {
 	return q.head == (q.tail+1)%q.capacity
 }
 
-func (q *CircularQueue) EnQueue(v interface{}) bool{
+func (q *CircularQueue) EnQueue(v interface{}) bool {
 	if q.IsFull() {
 		return false
 	}
-	q.tail = (q.tail+1)%q.capacity
+	q.tail = (q.tail + 1) % q.capacity
 	q.values[q.tail] = v
 	return true
 }
@@ -36,11 +39,11 @@ func (q *CircularQueue) DeQueue() interface{} {
 	}
 	value := q.values[q.head]
 	q.values[q.head] = nil
-	q.head = (q.head +1)%q.capacity
+	q.head = (q.head + 1) % q.capacity
 	return value
 }
 
-func (q *CircularQueue) String() string{
+func (q *CircularQueue) String() string {
 	if q.IsEmpty() {
 		return ""
 	}
@@ -55,4 +58,3 @@ func (q *CircularQueue) String() string{
 	}
 	return ""
 }
-
