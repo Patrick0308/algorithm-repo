@@ -1,2 +1,2 @@
 # algorithm-repo
-A repository of learned data structures and algorithms
+A repository of  data structures and algorithms
