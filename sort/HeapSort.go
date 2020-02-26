@@ -1,9 +1,6 @@
 package sort
 
-type HeapSort struct {
-}
-
-func sort(a []int) {
+func HeapSort(a []int) {
 	n := len(a) - 1
 	buildHeap(a, n)
 	k := n
