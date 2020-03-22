@@ -4,13 +4,13 @@ import (
 	"fmt"
 )
 
-type Node struct{
-	next *Node
+type Node struct {
+	next  *Node
 	value interface{}
 }
 
 type LinkedList struct {
-	head *Node
+	head   *Node
 	length uint
 }
 
@@ -30,7 +30,7 @@ func NewLinkedList() *LinkedList {
 	return &LinkedList{NewNode(0), 0}
 }
 
-func (n *LinkedList) InsertAfter(p *Node, v interface{}) bool{
+func (n *LinkedList) InsertAfter(p *Node, v interface{}) bool {
 	if nil == p {
 		return false
 	}
@@ -41,8 +41,8 @@ func (n *LinkedList) InsertAfter(p *Node, v interface{}) bool{
 	return true
 }
 
-func (n *LinkedList) InsertBefore(p *Node, v interface{}) bool{
-	if nil == p && p == n.head{
+func (n *LinkedList) InsertBefore(p *Node, v interface{}) bool {
+	if nil == p && p == n.head {
 		return false
 	}
 	t := n.head.next
@@ -58,25 +58,25 @@ func (n *LinkedList) InsertBefore(p *Node, v interface{}) bool{
 	return true
 }
 
-func (n *LinkedList) InsertHead(v interface{}) bool{
+func (n *LinkedList) InsertHead(v interface{}) bool {
 	return n.InsertAfter(n.head, v)
 }
 
-func (n *LinkedList) InsertTail(v interface{}) bool{
+func (n *LinkedList) InsertTail(v interface{}) bool {
 	tail := n.head
-	for tail.next != nil  {
+	for tail.next != nil {
 		tail = tail.next
 	}
-	return n.InsertAfter(tail,  v)
+	return n.InsertAfter(tail, v)
 }
 
 func (n *LinkedList) Reverse() {
-	if nil == n.head.next || nil == n.head.next.next{
+	if nil == n.head.next || nil == n.head.next.next {
 		return
 	}
-	var pre *Node =  nil
-	cur :=  n.head.next
-	for cur != nil{
+	var pre *Node = nil
+	cur := n.head.next
+	for cur != nil {
 		t := cur.next
 		cur.next = pre
 		pre = cur
@@ -85,11 +85,10 @@ func (n *LinkedList) Reverse() {
 	n.head.next = pre
 }
 
-
-func (n *LinkedList) HasCycle() bool{
+func (n *LinkedList) HasCycle() bool {
 	slow := n.head
 	fast := n.head
-	for fast != nil && fast.next.next != nil{
+	for fast != nil && fast.next.next != nil {
 		slow = slow.next
 		fast = fast.next.next
 		if slow == fast {
@@ -99,9 +98,9 @@ func (n *LinkedList) HasCycle() bool{
 	return false
 }
 
-func  (n *LinkedList) DeleteBottomN(num int) {
+func (n *LinkedList) DeleteBottomN(num int) {
 	if num < 0 || n.head.next == nil {
-		return 
+		return
 	}
 	fast := n.head
 	for i := 0; i < num && fast != nil; i++ {
@@ -118,20 +117,20 @@ func  (n *LinkedList) DeleteBottomN(num int) {
 	slow.next = slow.next.next
 }
 
-func (n *LinkedList) FindMiddleNode() *Node{
+func (n *LinkedList) FindMiddleNode() *Node {
 	if n.head.next == nil {
 		return nil
 	}
 	slow := n.head
 	fast := n.head
-	for fast != nil &&  fast.next != nil{
+	for fast != nil && fast.next != nil {
 		slow = slow.next
 		fast = fast.next.next
 	}
 	return slow
 }
 
-func (n *LinkedList) Print(){
+func (n *LinkedList) Print() {
 	cur := n.head.next
 	format := ""
 	for nil != cur {

@@ -8,7 +8,7 @@ import (
 func TestInsertToHead(t *testing.T) {
 	l := NewLinkedList()
 	for i := 0; i < 10; i++ {
-		l.InsertHead(i +1)
+		l.InsertHead(i + 1)
 	}
 	l.Print()
 }
@@ -24,7 +24,7 @@ func TestInsertToTail(t *testing.T) {
 func TestLinkedList_Reverse(t *testing.T) {
 	l := NewLinkedList()
 	for i := 0; i < 10; i++ {
-		l.InsertHead(i +1)
+		l.InsertHead(i + 1)
 	}
 	l.Print()
 	l.Reverse()
@@ -34,7 +34,7 @@ func TestLinkedList_Reverse(t *testing.T) {
 func TestLinkedList_DeleteBottomN(t *testing.T) {
 	l := NewLinkedList()
 	for i := 0; i < 10; i++ {
-		l.InsertHead(i +1)
+		l.InsertHead(i + 1)
 	}
 	l.Print()
 	l.DeleteBottomN(2)
@@ -44,7 +44,7 @@ func TestLinkedList_DeleteBottomN(t *testing.T) {
 func TestLinkedList_FindMiddleNode(t *testing.T) {
 	l := NewLinkedList()
 	for i := 0; i < 10; i++ {
-		l.InsertHead(i +1)
+		l.InsertHead(i + 1)
 	}
 	l.Print()
 	fmt.Println(l.FindMiddleNode())
