@@ -1,6 +1,8 @@
 package sort
 
-func BubbleSort(a []int, n int) {
+// BubbleSort...
+func BubbleSort(a []int) {
+	n := len(a)
 	if n <= 1 {
 		return
 	}
