@@ -1,6 +1,7 @@
 package sort
 
-func InsertionSort(a []int, n int) {
+func InsertionSort(a []int) {
+	n := len(a)
 	if n <= 1 {
 		return
 	}
